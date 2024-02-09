@@ -3,9 +3,10 @@ package parser
 import (
 	"net/http"
 	"testing"
-)
 
-const userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+	"github.com/mans82/ldoce-cli/internal/commons"
+	"github.com/stretchr/testify/assert"
+)
 
 func TestParseEntry(t *testing.T) {
 
@@ -50,7 +51,7 @@ func TestParseEntry(t *testing.T) {
 				t.Errorf("Error creating request: %v", err)
 			}
 
-			req.Header.Set("User-Agent", userAgent)
+			req.Header.Set("User-Agent", commons.UserAgent)
 
 			resp, err := client.Do(req)
 			if err != nil {
@@ -62,9 +63,8 @@ func TestParseEntry(t *testing.T) {
 				t.Errorf("Error parsing entry: %v", err)
 			}
 
-			if len(entries) != test.entryCount {
-				t.Errorf("Expected %d entries, got %d", test.entryCount, len(entries))
-			}
+			assert.Equal(t, test.entryCount, len(entries.SubEntries))
+
 		})
 	}
 }

@@ -3,11 +3,12 @@ package parser
 import (
 	"fmt"
 	"io"
+	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 )
 
-type Entry struct {
+type SubEntry struct {
 	HyphenatedText string
 	IPA            string
 	Type           string
@@ -15,35 +16,39 @@ type Entry struct {
 	ExtraInfo      string
 }
 
-func ParseEntry(htmlTextReader io.Reader) ([]Entry, error) {
+type Entry struct {
+	SubEntries []SubEntry
+}
+
+func ParseEntry(htmlTextReader io.Reader) (*Entry, error) {
 
 	doc, err := goquery.NewDocumentFromReader(htmlTextReader)
 	if err != nil {
 		return nil, fmt.Errorf("Error parsing html: %v", err)
 	}
 
-	result := make([]Entry, 0)
+	result := make([]SubEntry, 0)
 
 	doc.Find("span.Head").Each(func(i int, s *goquery.Selection) {
 
 		hyphenatedTextSelection := s.Find("span.HYPHENATION")
 
-		if len(hyphenatedTextSelection.Nodes) == 0 {
+		if hyphenatedTextSelection.Length() == 0 {
 			return
 		}
 
-		currentEntry := Entry{}
+		currentEntry := SubEntry{}
 
 		currentEntry.HyphenatedText = hyphenatedTextSelection.Text()
 		currentEntry.IPA = tryExtract(s, "span.PronCodes")
 		currentEntry.Type = tryExtract(s, "span.POS")
-		currentEntry.GrammerNotes = tryExtract(s, "span.GRAM")
+		currentEntry.GrammerNotes = strings.Trim(tryExtract(s, "span.GRAM"), "[]")
 		currentEntry.ExtraInfo = tryExtract(s, "span.REGISTERLAB")
 
 		result = append(result, currentEntry)
 	})
 
-	return result, nil
+	return &Entry{SubEntries: result}, nil
 }
 
 func tryExtract(s *goquery.Selection, selector string) string {
@@ -54,5 +59,5 @@ func tryExtract(s *goquery.Selection, selector string) string {
 		result += node.Text()
 	})
 
-	return result
+	return strings.TrimSpace(result)
 }
