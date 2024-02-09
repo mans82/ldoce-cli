@@ -16,27 +16,118 @@ func TestParseEntry(t *testing.T) {
 
 	tests := []struct {
 		url        string
-		entryCount int
+		subEntries []SubEntry
 	}{
 		{
-			url:        "https://www.ldoceonline.com/dictionary/bucket",
-			entryCount: 2,
+			url: "https://www.ldoceonline.com/dictionary/bucket",
+			subEntries: []SubEntry{
+				{
+					HyphenatedText: "buck‧et",
+					IPA:            "/ˈbʌkɪt/",
+					Type:           "noun",
+					GrammerNotes:   "countable",
+					ExtraInfo:      "",
+				},
+				{
+					HyphenatedText: "bucket",
+					IPA:            "",
+					Type:           "verb",
+					GrammerNotes:   "",
+					ExtraInfo:      "",
+				},
+			},
 		},
 		{
-			url:        "https://www.ldoceonline.com/dictionary/take",
-			entryCount: 4,
+			url: "https://www.ldoceonline.com/dictionary/take",
+			subEntries: []SubEntry{
+				{
+					HyphenatedText: "take",
+					IPA:            "/teɪk/",
+					Type:           "verb",
+					GrammerNotes:   "",
+					ExtraInfo:      "",
+				},
+				{
+					HyphenatedText: "take",
+					IPA:            "",
+					Type:           "noun",
+					GrammerNotes:   "",
+					ExtraInfo:      "",
+				},
+				{
+					HyphenatedText: "take",
+					IPA:            "/teɪk/",
+					Type:           "noun",
+					GrammerNotes:   "countable usually singular",
+					ExtraInfo:      "informal",
+				},
+				{
+					HyphenatedText: "take",
+					IPA:            "",
+					Type:           "verb",
+					GrammerNotes:   "transitive",
+					ExtraInfo:      "",
+				},
+			},
 		},
 		{
-			url:        "https://www.ldoceonline.com/dictionary/shadow",
-			entryCount: 4,
+			url: "https://www.ldoceonline.com/dictionary/shadow",
+			subEntries: []SubEntry{
+				{
+					HyphenatedText: "shad‧ow",
+					IPA:            "/ˈʃædəʊ $ -doʊ/",
+					Type:           "noun",
+					GrammerNotes:   "",
+					ExtraInfo:      "",
+				},
+				{
+					HyphenatedText: "shadow",
+					IPA:            "",
+					Type:           "verb",
+					GrammerNotes:   "transitive",
+					ExtraInfo:      "",
+				},
+				{
+					HyphenatedText: "shadow",
+					IPA:            "",
+					Type:           "adjective",
+					GrammerNotes:   "only before noun",
+					ExtraInfo:      "",
+				},
+				{
+					HyphenatedText: "shad‧ow",
+					IPA:            "/ˈʃædəʊ-doʊ/",
+					Type:           "verb",
+					GrammerNotes:   "transitive",
+					ExtraInfo:      "",
+				},
+			},
 		},
 		{
-			url:        "https://www.ldoceonline.com/dictionary/triumph",
-			entryCount: 3,
-		},
-		{
-			url:        "https://www.ldoceonline.com/dictionary/bayonet",
-			entryCount: 2,
+			url: "https://www.ldoceonline.com/dictionary/triumph",
+			subEntries: []SubEntry{
+				{
+					HyphenatedText: "triumph",
+					IPA:            "",
+					Type:           "verb",
+					GrammerNotes:   "intransitive",
+					ExtraInfo:      "formal",
+				},
+				{
+					HyphenatedText: "tri‧umph",
+					IPA:            "/ˈtraɪəmf/",
+					Type:           "noun",
+					GrammerNotes:   "",
+					ExtraInfo:      "",
+				},
+				{
+					HyphenatedText: "Triumph",
+					IPA:            "",
+					Type:           "",
+					GrammerNotes:   "",
+					ExtraInfo:      "trademark",
+				},
+			},
 		},
 	}
 
@@ -63,7 +154,7 @@ func TestParseEntry(t *testing.T) {
 				t.Errorf("Error parsing entry: %v", err)
 			}
 
-			assert.Equal(t, test.entryCount, len(entries.SubEntries))
+			assert.Equal(t, test.subEntries, entries.SubEntries)
 
 		})
 	}

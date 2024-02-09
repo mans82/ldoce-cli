@@ -40,7 +40,7 @@ func ParseEntry(htmlTextReader io.Reader) (*Entry, error) {
 		currentEntry := SubEntry{}
 
 		currentEntry.HyphenatedText = hyphenatedTextSelection.Text()
-		currentEntry.IPA = tryExtract(s, "span.PronCodes")
+		currentEntry.IPA = tryExtract(s, "span.Head > span.PronCodes")
 		currentEntry.Type = tryExtract(s, "span.POS")
 		currentEntry.GrammerNotes = strings.Trim(tryExtract(s, "span.GRAM"), "[]")
 		currentEntry.ExtraInfo = tryExtract(s, "span.REGISTERLAB")
