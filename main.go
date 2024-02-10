@@ -1,7 +1,25 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"os"
+
+	"github.com/mans82/ldoce-cli/pkg/formatter"
+	"github.com/mans82/ldoce-cli/pkg/lookup"
+)
 
 func main() {
-	fmt.Printf("Hello world!")
+
+	entries, err := lookup.LookupDefault(os.Args[1])
+
+	if err != nil {
+		panic(err)
+	}
+
+	bufferedStdout := bufio.NewWriter(os.Stdout)
+	defer bufferedStdout.Flush()
+
+	for _, entry := range entries.SubEntries {
+		formatter.PrintFormattedEntry(bufferedStdout, entry)
+	}
 }
