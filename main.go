@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"os"
 
 	"github.com/mans82/ldoce-cli/pkg/formatter"
@@ -15,7 +16,10 @@ func main() {
 		panic(err)
 	}
 
+	bufferedStdout := bufio.NewWriter(os.Stdout)
+	defer bufferedStdout.Flush()
+
 	for _, entry := range entries.SubEntries {
-		formatter.PrintFormattedEntry(os.Stdout, entry)
+		formatter.PrintFormattedEntry(bufferedStdout, entry)
 	}
 }
