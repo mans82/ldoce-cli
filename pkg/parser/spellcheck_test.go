@@ -112,7 +112,7 @@ func TestParseSpellcheckList(t *testing.T) {
 				urlSuffix := strings.Replace(test.suggestions[i], " ", "+", -1)
 
 				assert.Equal(t, test.suggestions[i], suggestion.Text)
-				assert.Equal(t, "https://ldoceonline.com/search/direct/?q="+urlSuffix, suggestion.Url)
+				assert.Equal(t, "https://www.ldoceonline.com/search/direct/?q="+urlSuffix, suggestion.Url)
 			}
 		})
 	}

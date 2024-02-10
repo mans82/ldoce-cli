@@ -31,7 +31,7 @@ func ParseSpellcheck(htmlTextReader io.Reader) (*Spellcheck, error) {
 	suggestionSelection.Each(func(i int, s *goquery.Selection) {
 		suggestionText := strings.TrimSpace(s.Text())
 		suggestionUrl, _ := s.Attr("href")
-		suggestionUrl = "https://ldoceonline.com" + suggestionUrl
+		suggestionUrl = "https://www.ldoceonline.com" + suggestionUrl
 
 		result = append(result, Suggestion{Text: suggestionText, Url: suggestionUrl})
 	})
