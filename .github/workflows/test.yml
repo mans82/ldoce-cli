@@ -1,0 +1,27 @@
+---
+name: Run tests
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.21.6
+      - name: Install dependencies
+        run: go get .
+      - name: Build project
+        run: go build .
+      - name: Run tests
+        run: go test -v ./...
