@@ -21,7 +21,7 @@ func ParseSpellcheck(htmlTextReader io.Reader) (*Spellcheck, error) {
 
 	doc, err := goquery.NewDocumentFromReader(htmlTextReader)
 	if err != nil {
-		return nil, fmt.Errorf("Error parsing html: %v", err)
+		return nil, fmt.Errorf("error parsing html: %v", err)
 	}
 
 	suggestionSelection := doc.Find("ul.didyoumean > li > a")
