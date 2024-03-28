@@ -14,6 +14,7 @@ type SubEntry struct {
 	Type           string
 	GrammerNotes   string
 	ExtraInfo      string
+	Definitions    []string
 }
 
 type Entry struct {
@@ -24,14 +25,16 @@ func ParseEntry(htmlTextReader io.Reader) (*Entry, error) {
 
 	doc, err := goquery.NewDocumentFromReader(htmlTextReader)
 	if err != nil {
-		return nil, fmt.Errorf("Error parsing html: %v", err)
+		return nil, fmt.Errorf("error parsing html: %v", err)
 	}
 
 	result := make([]SubEntry, 0)
 
-	doc.Find("span.Head").Each(func(i int, s *goquery.Selection) {
+	doc.Find(".Entry").Each(func(i int, s *goquery.Selection) {
 
-		hyphenatedTextSelection := s.Find("span.HYPHENATION")
+		head := s.Find("span.Head")
+
+		hyphenatedTextSelection := head.Find("span.HYPHENATION")
 
 		if hyphenatedTextSelection.Length() == 0 {
 			return
@@ -40,10 +43,24 @@ func ParseEntry(htmlTextReader io.Reader) (*Entry, error) {
 		currentEntry := SubEntry{}
 
 		currentEntry.HyphenatedText = hyphenatedTextSelection.Text()
-		currentEntry.IPA = tryExtract(s, "span.Head > span.PronCodes")
-		currentEntry.Type = tryExtract(s, "span.POS")
-		currentEntry.GrammerNotes = strings.Trim(tryExtract(s, "span.GRAM"), "[]")
-		currentEntry.ExtraInfo = tryExtract(s, "span.REGISTERLAB")
+		currentEntry.IPA = tryExtract(head, "span.Head > span.PronCodes")
+		currentEntry.Type = tryExtract(head, "span.POS")
+		currentEntry.GrammerNotes = strings.Trim(tryExtract(head, "span.GRAM"), "[]")
+		currentEntry.ExtraInfo = tryExtract(head, "span.REGISTERLAB")
+
+		s.Find(".Sense").Each(func(i int, node *goquery.Selection) {
+
+			definition := strings.TrimSpace(node.Find(".DEF").Text())
+			if definition == "" {
+				return
+			}
+
+			definition += " " + strings.TrimSpace(node.Find(".DEF + .FULLFORM").Text())
+
+			definition = strings.TrimSpace(definition)
+
+			currentEntry.Definitions = append(currentEntry.Definitions, definition)
+		})
 
 		result = append(result, currentEntry)
 	})
