@@ -9,6 +9,7 @@ import (
 
 var redBold = color.New(color.FgHiRed, color.Bold).FprintfFunc()
 var white = color.New(color.FgWhite).FprintfFunc()
+var whiteBold = color.New(color.FgWhite, color.Bold).FprintfFunc()
 var green = color.New(color.FgHiGreen).FprintfFunc()
 var magenta = color.New(color.FgHiMagenta).FprintfFunc()
 
@@ -27,4 +28,13 @@ func PrintFormattedEntry(writer io.Writer, entry parser.SubEntry) {
 		white(writer, "] ")
 	}
 	magenta(writer, "%s\n", entry.ExtraInfo)
+
+	for _, definition := range entry.Definitions {
+		PrintFormattedDefinition(writer, definition)
+	}
+}
+
+func PrintFormattedDefinition(writer io.Writer, definition string) {
+	whiteBold(writer, "  + ")
+	white(writer, "%s\n", definition)
 }
