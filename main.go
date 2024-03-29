@@ -19,7 +19,7 @@ func main() {
 	bufferedStdout := bufio.NewWriter(os.Stdout)
 	defer bufferedStdout.Flush()
 
-	for _, entry := range entries.SubEntries {
+	for _, entry := range entries.Entries {
 		formatter.PrintFormattedEntry(bufferedStdout, entry)
 	}
 }

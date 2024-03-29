@@ -15,23 +15,51 @@ func TestParseEntry(t *testing.T) {
 	client := &http.Client{}
 
 	tests := []struct {
-		url        string
-		subEntries []SubEntry
+		url     string
+		entries []Entry
 	}{
 		{
 			url: "https://www.ldoceonline.com/dictionary/bucket",
-			subEntries: []SubEntry{
+			entries: []Entry{
 				{
 					HyphenatedText: "buck‧et",
 					IPA:            "/ˈbʌkɪt/",
 					Type:           "noun",
 					GrammerNotes:   "countable",
 					ExtraInfo:      "",
-					Definitions: []string{
-						"an open container with a handle, used for carrying and holding things, especially liquids",
-						"the quantity of liquid that a bucket can hold",
-						"a part of a machine shaped like a large bucket and used for moving earth, water etc",
-						"a large amount of something",
+					Senses: []Sense{
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "an open container with a handle, used for carrying and holding things, especially liquids",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "the quantity of liquid that a bucket can hold",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "a part of a machine shaped like a large bucket and used for moving earth, water etc",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "a large amount of something",
+								},
+							},
+						},
 					},
 				},
 				{
@@ -40,42 +68,204 @@ func TestParseEntry(t *testing.T) {
 					Type:           "verb",
 					GrammerNotes:   "",
 					ExtraInfo:      "",
+					Senses:         []Sense{},
 				},
 			},
 		},
 		{
 			url: "https://www.ldoceonline.com/dictionary/take",
-			subEntries: []SubEntry{
+			entries: []Entry{
 				{
 					HyphenatedText: "take",
 					IPA:            "/teɪk/",
 					Type:           "verb",
 					GrammerNotes:   "",
 					ExtraInfo:      "",
-					Definitions: []string{
-						"to move or go with someone or something from one place to another",
-						"used with a noun instead of using a verb to describe an action. For example, if you take a walk, you walk somewhere",
-						"to remove something from a place",
-						"if something takes a particular amount of time, money, effort etc, that amount of time etc is needed for it to happen or succeed",
-						"to accept or choose something that is offered, suggested, or given to you",
-						"to get hold of something in your hands",
-						"to use a particular form of transport or a particular road in order to go somewhere",
-						"to study a particular subject in school or college for an examination",
-						"to do an examination or test",
-						"to be the correct or suitable size, type etc for a particular person or thing",
-						"to collect or gather something for a particular purpose",
-						"to react to someone or something or consider them in a particular way",
-						"to have or experience a particular feeling",
-						"to get possession or control of something",
-						"to swallow, breathe in, inject etc a drug or medicine",
-						"to make someone or something go to a higher level or position",
-						"to measure the amount, level, rate etc of something",
-						"to make a number smaller by a particular amount",
-						"if a shop, business etc takes a particular amount of money, it receives that amount of money from its customers",
-						"to teach a particular group of students in a school or college",
-						"to write down information",
-						"if a man takes someone, he has sex with them",
-						"if a treatment, dye, drug etc takes, it begins to work successfully",
+					Senses: []Sense{
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to move or go with someone or something from one place to another",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "used with a noun instead of using a verb to describe an action. For example, if you take a walk, you walk somewhere",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to remove something from a place",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "if something takes a particular amount of time, money, effort etc, that amount of time etc is needed for it to happen or succeed",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to accept or choose something that is offered, suggested, or given to you",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to get hold of something in your hands",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to use a particular form of transport or a particular road in order to go somewhere",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to study a particular subject in school or college for an examination",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to do an examination or test",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to be the correct or suitable size, type etc for a particular person or thing",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to collect or gather something for a particular purpose",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to react to someone or something or consider them in a particular way",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to have or experience a particular feeling",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to get possession or control of something",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to swallow, breathe in, inject etc a drug or medicine",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to make someone or something go to a higher level or position",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to measure the amount, level, rate etc of something",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to make a number smaller by a particular amount",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "if a shop, business etc takes a particular amount of money, it receives that amount of money from its customers",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to teach a particular group of students in a school or college",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to write down information",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "if a man takes someone, he has sex with them",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "if a treatment, dye, drug etc takes, it begins to work successfully",
+								},
+							},
+						},
 					},
 				},
 				{
@@ -84,9 +274,23 @@ func TestParseEntry(t *testing.T) {
 					Type:           "noun",
 					GrammerNotes:   "",
 					ExtraInfo:      "",
-					Definitions: []string{
-						"an occasion when a film scene, song, action etc is recorded",
-						"the amount of money earned by a shop or business in a particular period of time",
+					Senses: []Sense{
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "an occasion when a film scene, song, action etc is recorded",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "the amount of money earned by a shop or business in a particular period of time",
+								},
+							},
+						},
 					},
 				},
 				{
@@ -95,9 +299,23 @@ func TestParseEntry(t *testing.T) {
 					Type:           "noun",
 					GrammerNotes:   "countable usually singular",
 					ExtraInfo:      "informal",
-					Definitions: []string{
-						"the amount of money earned by a business in a particular period of time",
-						"to be willing to do something wrong or illegal in return for money",
+					Senses: []Sense{
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "the amount of money earned by a business in a particular period of time",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to be willing to do something wrong or illegal in return for money",
+								},
+							},
+						},
 					},
 				},
 				{
@@ -106,26 +324,61 @@ func TestParseEntry(t *testing.T) {
 					Type:           "verb",
 					GrammerNotes:   "transitive",
 					ExtraInfo:      "",
-					Definitions: []string{
-						"to subtract one number from another number",
-						"if a business takes or takes in a particular amount of money, it earns that money from selling its goods and services",
+					Senses: []Sense{
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to subtract one number from another number",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "if a business takes or takes in a particular amount of money, it earns that money from selling its goods and services",
+								},
+							},
+						},
 					},
 				},
 			},
 		},
 		{
 			url: "https://www.ldoceonline.com/dictionary/shadow",
-			subEntries: []SubEntry{
+			entries: []Entry{
 				{
 					HyphenatedText: "shad‧ow",
 					IPA:            "/ˈʃædəʊ $ -doʊ/",
 					Type:           "noun",
 					GrammerNotes:   "",
 					ExtraInfo:      "",
-					Definitions: []string{
-						"the dark shape that someone or something makes on a surface when they are between that surface and the light",
-						"darkness caused by something preventing light from reaching a place",
-						"the bad effect or influence that something has, which makes other things seem less enjoyable, attractive, or impressive",
+					Senses: []Sense{
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "the dark shape that someone or something makes on a surface when they are between that surface and the light",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "darkness caused by something preventing light from reaching a place",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "the bad effect or influence that something has, which makes other things seem less enjoyable, attractive, or impressive",
+								},
+							},
+						},
 					},
 				},
 				{
@@ -134,9 +387,23 @@ func TestParseEntry(t *testing.T) {
 					Type:           "verb",
 					GrammerNotes:   "transitive",
 					ExtraInfo:      "",
-					Definitions: []string{
-						"to follow someone closely in order to watch what they are doing",
-						"to cover something with a shadow, or make it dark",
+					Senses: []Sense{
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to follow someone closely in order to watch what they are doing",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to cover something with a shadow, or make it dark",
+								},
+							},
+						},
 					},
 				},
 				{
@@ -145,6 +412,7 @@ func TestParseEntry(t *testing.T) {
 					Type:           "adjective",
 					GrammerNotes:   "only before noun",
 					ExtraInfo:      "",
+					Senses:         []Sense{},
 				},
 				{
 					HyphenatedText: "shad‧ow",
@@ -152,24 +420,45 @@ func TestParseEntry(t *testing.T) {
 					Type:           "verb",
 					GrammerNotes:   "transitive",
 					ExtraInfo:      "",
-					Definitions: []string{
-						"to watch someone very closely or work with them in order to learn how they do their job",
-						"to change at the same rate or in the same way as something",
+					Senses: []Sense{
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to watch someone very closely or work with them in order to learn how they do their job",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to change at the same rate or in the same way as something",
+								},
+							},
+						},
 					},
 				},
 			},
 		},
 		{
 			url: "https://www.ldoceonline.com/dictionary/triumph",
-			subEntries: []SubEntry{
+			entries: []Entry{
 				{
 					HyphenatedText: "triumph",
 					IPA:            "",
 					Type:           "verb",
 					GrammerNotes:   "intransitive",
 					ExtraInfo:      "formal",
-					Definitions: []string{
-						"to gain a victory or success after a difficult struggle",
+					Senses: []Sense{
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "to gain a victory or success after a difficult struggle",
+								},
+							},
+						},
 					},
 				},
 				{
@@ -178,10 +467,31 @@ func TestParseEntry(t *testing.T) {
 					Type:           "noun",
 					GrammerNotes:   "",
 					ExtraInfo:      "",
-					Definitions: []string{
-						"an important victory or success after a difficult struggle",
-						"a feeling of pleasure and satisfaction that you get from victory or success",
-						"a very successful example of something",
+					Senses: []Sense{
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "an important victory or success after a difficult struggle",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "a feeling of pleasure and satisfaction that you get from victory or success",
+								},
+							},
+						},
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "a very successful example of something",
+								},
+							},
+						},
 					},
 				},
 				{
@@ -190,8 +500,15 @@ func TestParseEntry(t *testing.T) {
 					Type:           "",
 					GrammerNotes:   "",
 					ExtraInfo:      "trademark",
-					Definitions: []string{
-						"a type of motorcycle made by the British company Triumph, which is known for being well-made in a traditional way. The Triumph company also used to make sports cars.",
+					Senses: []Sense{
+						{
+							SignPost: "",
+							Subsenses: []SubSense{
+								{
+									Definition: "a type of motorcycle made by the British company Triumph, which is known for being well-made in a traditional way. The Triumph company also used to make sports cars.",
+								},
+							},
+						},
 					},
 				},
 			},
@@ -221,7 +538,7 @@ func TestParseEntry(t *testing.T) {
 				t.Errorf("Error parsing entry: %v", err)
 			}
 
-			assert.Equal(t, test.subEntries, entries.SubEntries)
+			assert.Equal(t, test.entries, entries.Entries)
 
 		})
 	}

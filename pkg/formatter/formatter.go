@@ -15,7 +15,7 @@ var whiteBold = color.New(color.FgWhite, color.Bold).FprintfFunc()
 var green = color.New(color.FgHiGreen).FprintfFunc()
 var magenta = color.New(color.FgHiMagenta).FprintfFunc()
 
-func PrintFormattedEntry(writer io.Writer, entry parser.SubEntry) {
+func PrintFormattedEntry(writer io.Writer, entry parser.Entry) {
 	redBold(writer, "  %s", entry.HyphenatedText)
 	if entry.IPA != "" {
 		white(writer, " %s", entry.IPA)
@@ -31,8 +31,8 @@ func PrintFormattedEntry(writer io.Writer, entry parser.SubEntry) {
 	}
 	magenta(writer, "%s\n", entry.ExtraInfo)
 
-	for _, definition := range entry.Definitions {
-		PrintFormattedDefinition(writer, definition)
+	for _, sense := range entry.Senses {
+		PrintFormattedDefinition(writer, sense.Subsenses[0].Definition)
 	}
 
 	fmt.Fprintln(writer)

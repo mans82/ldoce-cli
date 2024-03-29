@@ -12,23 +12,43 @@ func TestLookUpDefault(t *testing.T) {
 
 	tests := []struct {
 		word  string
-		entry parser.Entry
+		entry parser.QueryResult
 	}{
 		{
 			word: "bucket",
-			entry: parser.Entry{
-				SubEntries: []parser.SubEntry{
+			entry: parser.QueryResult{
+				Entries: []parser.Entry{
 					{
 						HyphenatedText: "buck‧et",
 						IPA:            "/ˈbʌkɪt/",
 						Type:           "noun",
 						GrammerNotes:   "countable",
 						ExtraInfo:      "",
-						Definitions: []string{
-							"an open container with a handle, used for carrying and holding things, especially liquids",
-							"the quantity of liquid that a bucket can hold",
-							"a part of a machine shaped like a large bucket and used for moving earth, water etc",
-							"a large amount of something",
+						Senses: []parser.Sense{
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "an open container with a handle, used for carrying and holding things, especially liquids"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "the quantity of liquid that a bucket can hold"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "a part of a machine shaped like a large bucket and used for moving earth, water etc"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "a large amount of something"},
+								},
+							},
 						},
 					},
 					{
@@ -37,42 +57,148 @@ func TestLookUpDefault(t *testing.T) {
 						Type:           "verb",
 						GrammerNotes:   "",
 						ExtraInfo:      "",
+						Senses:         []parser.Sense{},
 					},
 				},
 			},
 		},
 		{
 			word: "give",
-			entry: parser.Entry{
-				SubEntries: []parser.SubEntry{
+			entry: parser.QueryResult{
+				Entries: []parser.Entry{
 					{
 						HyphenatedText: "give",
 						IPA:            "/ɡɪv/",
 						Type:           "verb",
 						GrammerNotes:   "",
 						ExtraInfo:      "",
-						Definitions: []string{
-							"to let someone have something as a present, or to provide something for someone",
-							"to put something in someone’s hand",
-							"to allow or make it possible for someone to do something",
-							"to tell someone information or details about something, or to tell someone what they should do",
-							"to do something by making a movement with your hand, face, body etc",
-							"to make a speech, perform a piece of music etc for a group of people",
-							"to make someone have a feeling",
-							"to make someone have problems",
-							"to infect someone with the same illness that you have",
-							"to organize a social event such as a party",
-							"to tell someone to do a job or piece of work",
-							"to make someone or something have a particular quality",
-							"to pay a particular amount of money for something",
-							"to behave towards someone in a way that shows you have a particular attitude or feeling towards them",
-							"to officially say that someone must have a particular punishment",
-							"to be willing to change what you think or do according to what else happens",
-							"to state what your official decision or judgment is, for example in a game",
-							"to decide that someone should have a particular score or mark for something that they have done",
-							"if a material gives, it bends or stretches when you put pressure on it",
-							"if something gives, it breaks or moves away suddenly because of weight or pressure on it",
-							"if a woman gives herself to a man, she has sex with him",
+						Senses: []parser.Sense{
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to let someone have something as a present, or to provide something for someone"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to put something in someone’s hand"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to allow or make it possible for someone to do something"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to tell someone information or details about something, or to tell someone what they should do"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to do something by making a movement with your hand, face, body etc"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to make a speech, perform a piece of music etc for a group of people"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to make someone have a feeling"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to make someone have problems"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to infect someone with the same illness that you have"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to organize a social event such as a party"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to tell someone to do a job or piece of work"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to make someone or something have a particular quality"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to pay a particular amount of money for something"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to behave towards someone in a way that shows you have a particular attitude or feeling towards them"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to officially say that someone must have a particular punishment"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to be willing to change what you think or do according to what else happens"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to state what your official decision or judgment is, for example in a game"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "to decide that someone should have a particular score or mark for something that they have done"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "if a material gives, it bends or stretches when you put pressure on it"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "if something gives, it breaks or moves away suddenly because of weight or pressure on it"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "if a woman gives herself to a man, she has sex with him"},
+								},
+							},
 						},
 					},
 					{
@@ -81,8 +207,12 @@ func TestLookUpDefault(t *testing.T) {
 						Type:           "noun",
 						GrammerNotes:   "uncountable",
 						ExtraInfo:      "",
-						Definitions: []string{
-							"the ability of a material or substance to bend or stretch when put under pressure",
+						Senses: []parser.Sense{{
+							SignPost: "",
+							Subsenses: []parser.SubSense{
+								{Definition: "the ability of a material or substance to bend or stretch when put under pressure"},
+							},
+						},
 						},
 					},
 				},
@@ -90,18 +220,32 @@ func TestLookUpDefault(t *testing.T) {
 		},
 		{
 			word: "nerv",
-			entry: parser.Entry{
-				SubEntries: []parser.SubEntry{
+			entry: parser.QueryResult{
+				Entries: []parser.Entry{
 					{
 						HyphenatedText: "nerve",
 						IPA:            "/nɜːv $ nɜːrv/",
 						Type:           "noun",
 						GrammerNotes:   "",
 						ExtraInfo:      "",
-						Definitions: []string{
-							"nerves are parts inside your body which look like threads and carry messages between the brain and other parts of the body",
-							"courage and confidence in a dangerous, difficult, or frightening situation",
-							"if you say someone has a nerve, you mean that they have done something unsuitable or impolite, without seeming to be embarrassed about behaving in this way",
+						Senses: []parser.Sense{
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "nerves are parts inside your body which look like threads and carry messages between the brain and other parts of the body"},
+								},
+							}, {
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "courage and confidence in a dangerous, difficult, or frightening situation"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "if you say someone has a nerve, you mean that they have done something unsuitable or impolite, without seeming to be embarrassed about behaving in this way"},
+								},
+							},
 						},
 					},
 					{
@@ -110,23 +254,33 @@ func TestLookUpDefault(t *testing.T) {
 						Type:           "verb",
 						GrammerNotes:   "",
 						ExtraInfo:      "",
+						Senses:         []parser.Sense{},
 					},
 				},
 			},
 		},
 		{
 			word: "co",
-			entry: parser.Entry{
-				SubEntries: []parser.SubEntry{
+			entry: parser.QueryResult{
+				Entries: []parser.Entry{
 					{
 						HyphenatedText: "co-",
 						IPA:            "/kəʊ $ koʊ/",
 						Type:           "prefix",
 						GrammerNotes:   "",
 						ExtraInfo:      "",
-						Definitions: []string{
-							"together with",
-							"doing something with someone else as an equal or with less responsibility",
+						Senses: []parser.Sense{
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "together with"},
+								},
+							}, {
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "doing something with someone else as an equal or with less responsibility"},
+								},
+							},
 						},
 					},
 					{
@@ -135,9 +289,19 @@ func TestLookUpDefault(t *testing.T) {
 						Type:           "",
 						GrammerNotes:   "",
 						ExtraInfo:      "",
-						Definitions: []string{
-							"the abbreviation of company",
-							"the written abbreviation of county",
+						Senses: []parser.Sense{
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "the abbreviation of company"},
+								},
+							},
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "the written abbreviation of county"},
+								},
+							},
 						},
 					},
 					{
@@ -146,8 +310,13 @@ func TestLookUpDefault(t *testing.T) {
 						Type:           "",
 						GrammerNotes:   "",
 						ExtraInfo:      "",
-						Definitions: []string{
-							"the written abbreviation of Colorado",
+						Senses: []parser.Sense{
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "the written abbreviation of Colorado"},
+								},
+							},
 						},
 					},
 					{
@@ -156,8 +325,13 @@ func TestLookUpDefault(t *testing.T) {
 						Type:           "noun",
 						GrammerNotes:   "countable",
 						ExtraInfo:      "",
-						Definitions: []string{
-							"an officer who is in charge of a military unit",
+						Senses: []parser.Sense{
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "an officer who is in charge of a military unit"},
+								},
+							},
 						},
 					},
 					{
@@ -166,8 +340,13 @@ func TestLookUpDefault(t *testing.T) {
 						Type:           "",
 						GrammerNotes:   "",
 						ExtraInfo:      "",
-						Definitions: []string{
-							"written abbreviation for Company",
+						Senses: []parser.Sense{
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "written abbreviation for Company"},
+								},
+							},
 						},
 					},
 					{
@@ -176,8 +355,13 @@ func TestLookUpDefault(t *testing.T) {
 						Type:           "prefix",
 						GrammerNotes:   "",
 						ExtraInfo:      "",
-						Definitions: []string{
-							"added to the front of a noun to show that someone does a job with someone else",
+						Senses: []parser.Sense{
+							{
+								SignPost: "",
+								Subsenses: []parser.SubSense{
+									{Definition: "added to the front of a noun to show that someone does a job with someone else"},
+								},
+							},
 						},
 					},
 				},

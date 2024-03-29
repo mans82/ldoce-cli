@@ -8,27 +8,36 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-type SubEntry struct {
+type SubSense struct {
+	Definition string
+}
+
+type Sense struct {
+	SignPost  string
+	Subsenses []SubSense
+}
+
+type Entry struct {
 	HyphenatedText string
 	IPA            string
 	Type           string
 	GrammerNotes   string
 	ExtraInfo      string
-	Definitions    []string
+	Senses         []Sense
 }
 
-type Entry struct {
-	SubEntries []SubEntry
+type QueryResult struct {
+	Entries []Entry
 }
 
-func ParseEntry(htmlTextReader io.Reader) (*Entry, error) {
+func ParseEntry(htmlTextReader io.Reader) (*QueryResult, error) {
 
 	doc, err := goquery.NewDocumentFromReader(htmlTextReader)
 	if err != nil {
 		return nil, fmt.Errorf("error parsing html: %v", err)
 	}
 
-	result := make([]SubEntry, 0)
+	entries := make([]Entry, 0)
 
 	doc.Find(".Entry").Each(func(i int, s *goquery.Selection) {
 
@@ -40,13 +49,15 @@ func ParseEntry(htmlTextReader io.Reader) (*Entry, error) {
 			return
 		}
 
-		currentEntry := SubEntry{}
+		currentEntry := Entry{}
 
 		currentEntry.HyphenatedText = hyphenatedTextSelection.Text()
 		currentEntry.IPA = tryExtract(head, "span.Head > span.PronCodes")
 		currentEntry.Type = tryExtract(head, "span.POS")
 		currentEntry.GrammerNotes = strings.Trim(tryExtract(head, "span.GRAM"), "[]")
 		currentEntry.ExtraInfo = tryExtract(head, "span.REGISTERLAB")
+
+		senses := make([]Sense, 0)
 
 		s.Find(".Sense").Each(func(i int, node *goquery.Selection) {
 
@@ -59,13 +70,20 @@ func ParseEntry(htmlTextReader io.Reader) (*Entry, error) {
 
 			definition = strings.TrimSpace(definition)
 
-			currentEntry.Definitions = append(currentEntry.Definitions, definition)
+			sense := Sense{
+				SignPost:  "",
+				Subsenses: []SubSense{{Definition: definition}},
+			}
+
+			senses = append(senses, sense)
 		})
 
-		result = append(result, currentEntry)
+		currentEntry.Senses = senses
+
+		entries = append(entries, currentEntry)
 	})
 
-	return &Entry{SubEntries: result}, nil
+	return &QueryResult{Entries: entries}, nil
 }
 
 func tryExtract(s *goquery.Selection, selector string) string {
