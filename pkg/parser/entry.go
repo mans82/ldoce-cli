@@ -61,18 +61,44 @@ func ParseEntry(htmlTextReader io.Reader) (*QueryResult, error) {
 
 		s.Find(".Sense").Each(func(i int, node *goquery.Selection) {
 
-			definition := strings.TrimSpace(node.Find(".DEF").Text())
-			if definition == "" {
-				return
-			}
+			var sense Sense
+			subSensesNodes := node.Find(".Subsense")
 
-			definition += " " + strings.TrimSpace(node.Find(".DEF + .FULLFORM").Text())
+			if subSensesNodes.Length() == 0 {
 
-			definition = strings.TrimSpace(definition)
+				definition := strings.TrimSpace(node.Find(".DEF").Text())
+				if definition == "" {
+					return
+				}
 
-			sense := Sense{
-				SignPost:  "",
-				Subsenses: []SubSense{{Definition: definition}},
+				definition += " " + strings.TrimSpace(node.Find(".DEF + .FULLFORM").Text())
+
+				definition = strings.TrimSpace(definition)
+
+				sense = Sense{
+					SignPost:  "",
+					Subsenses: []SubSense{{Definition: definition}},
+				}
+			} else {
+				subSenses := make([]SubSense, 0)
+
+				subSensesNodes.Each(func(i int, node *goquery.Selection) {
+					definition := strings.TrimSpace(node.Find(".DEF").Text())
+					if definition == "" {
+						return
+					}
+
+					definition += " " + strings.TrimSpace(node.Find(".DEF + .FULLFORM").Text())
+
+					definition = strings.TrimSpace(definition)
+
+					subSenses = append(subSenses, SubSense{Definition: definition})
+				})
+
+				sense = Sense{
+					SignPost:  "",
+					Subsenses: subSenses,
+				}
 			}
 
 			senses = append(senses, sense)
