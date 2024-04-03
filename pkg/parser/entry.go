@@ -29,7 +29,7 @@ type Entry struct {
 }
 
 type QueryResult struct {
-	Entries []Entry
+	Entries []Entry `yaml:"entries"`
 }
 
 func ParseEntry(htmlTextReader io.Reader) (*QueryResult, error) {
@@ -125,9 +125,9 @@ func tryExtract(s *goquery.Selection, selector string) string {
 	return strings.TrimSpace(result)
 }
 
-func GetAllTestEntries(testcasesFilePath string) (map[string]Entry, error) {
+func GetAllTestEntries(testcasesFilePath string) (map[string]QueryResult, error) {
 
-	var allEntries map[string]Entry
+	var allEntries map[string]QueryResult
 
 	testYamlFile, err := os.ReadFile(testcasesFilePath)
 	if err != nil {

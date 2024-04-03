@@ -20,8 +20,8 @@ func TestParseEntry(t *testing.T) {
 		t.Errorf("Error getting test entries: %v", err)
 	}
 
-	for word, test := range tests {
-		test := test
+	for word, expectedQueryResult := range tests {
+		expectedQueryResult := expectedQueryResult
 		test_url := "https://www.ldoceonline.com/dictionary/" + word
 
 		t.Run(word, func(t *testing.T) {
@@ -40,12 +40,12 @@ func TestParseEntry(t *testing.T) {
 				t.Errorf("Error sending request: %v", err)
 			}
 
-			entries, err := ParseEntry(resp.Body)
+			queryResult, err := ParseEntry(resp.Body)
 			if err != nil {
 				t.Errorf("Error parsing entry: %v", err)
 			}
 
-			assert.Equal(t, test.SubEntries, entries.SubEntries)
+			assert.Equal(t, expectedQueryResult, *queryResult)
 
 		})
 	}
