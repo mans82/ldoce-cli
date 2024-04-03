@@ -13,11 +13,7 @@ func TestLookUpDefault(t *testing.T) {
 
 	t.Parallel()
 
-	allEntries, err := parser.GetAllTestEntries()
-
-	// for key := range allEntries {
-	// 	t.Logf("key: %v", allEntries[key])
-	// }
+	allEntries, err := parser.GetAllTestEntries("../parser/testdata/all-entries.yaml") // FIXME: Find a better way to organize test data
 
 	if err != nil {
 		t.Errorf("error getting test entries: %v", err)

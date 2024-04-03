@@ -14,7 +14,7 @@ func TestParseEntry(t *testing.T) {
 
 	client := &http.Client{}
 
-	tests, err := GetAllTestEntries()
+	tests, err := GetAllTestEntries("./testdata/all-entries.yaml")
 
 	if err != nil {
 		t.Errorf("Error getting test entries: %v", err)

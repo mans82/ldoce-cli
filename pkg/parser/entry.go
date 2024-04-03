@@ -81,11 +81,11 @@ func tryExtract(s *goquery.Selection, selector string) string {
 	return strings.TrimSpace(result)
 }
 
-func GetAllTestEntries() (map[string]Entry, error) {
+func GetAllTestEntries(testcasesFilePath string) (map[string]Entry, error) {
 
 	var allEntries map[string]Entry
 
-	testYamlFile, err := os.ReadFile("../../internal/commons/testdata/all-entries.yaml")
+	testYamlFile, err := os.ReadFile(testcasesFilePath)
 	if err != nil {
 		return nil, fmt.Errorf("error reading test data: %v", err)
 	}
