@@ -3,22 +3,24 @@ package parser
 import (
 	"fmt"
 	"io"
+	"os"
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
+	"gopkg.in/yaml.v3"
 )
 
 type SubEntry struct {
-	HyphenatedText string
-	IPA            string
-	Type           string
-	GrammerNotes   string
-	ExtraInfo      string
-	Definitions    []string
+	HyphenatedText string   `yaml:"hyphenatedText"`
+	IPA            string   `yaml:"IPA"`
+	Type           string   `yaml:"type"`
+	GrammerNotes   string   `yaml:"grammerNotes"`
+	ExtraInfo      string   `yaml:"extraInfo"`
+	Definitions    []string `yaml:"definitions"`
 }
 
 type Entry struct {
-	SubEntries []SubEntry
+	SubEntries []SubEntry `yaml:"subEntries"`
 }
 
 func ParseEntry(htmlTextReader io.Reader) (*Entry, error) {
@@ -77,4 +79,21 @@ func tryExtract(s *goquery.Selection, selector string) string {
 	})
 
 	return strings.TrimSpace(result)
+}
+
+func GetAllTestEntries() (map[string]Entry, error) {
+
+	var allEntries map[string]Entry
+
+	testYamlFile, err := os.ReadFile("../../internal/commons/testdata/all-entries.yaml")
+	if err != nil {
+		return nil, fmt.Errorf("error reading test data: %v", err)
+	}
+
+	err = yaml.Unmarshal(testYamlFile, &allEntries)
+	if err != nil {
+		return nil, fmt.Errorf("error unmarshalling test data: %v", err)
+	}
+
+	return allEntries, nil
 }
