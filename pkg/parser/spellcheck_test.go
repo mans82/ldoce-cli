@@ -2,11 +2,13 @@ package parser
 
 import (
 	"net/http"
+	"os"
 	"strings"
 	"testing"
 
 	"github.com/mans82/ldoce-cli/internal/commons"
 	"github.com/stretchr/testify/assert"
+	"gopkg.in/yaml.v3"
 )
 
 func TestParseSpellcheckList(t *testing.T) {
@@ -15,79 +17,28 @@ func TestParseSpellcheckList(t *testing.T) {
 
 	client := &http.Client{}
 
-	tests := []struct {
-		url         string
-		suggestions []string
-	}{
-		{
-			url: "https://www.ldoceonline.com/spellcheck/english/?q=berr",
-			suggestions: []string{
-				"berry",
-				"bear",
-				"beer",
-				"berk",
-				"burr",
-				"err",
-				"beard",
-				"bears",
-				"beers",
-				"beery",
-			},
-		},
-		{
-			url: "https://www.ldoceonline.com/spellcheck/english/?q=gerr",
-			suggestions: []string{
-				"err",
-				"gear",
-				"germ",
-				"gears",
-				"genre",
-				"germs",
-				"-eer",
-				"-er",
-				"-ery",
-				"Aero",
-			},
-		},
-		{
-			url: "https://www.ldoceonline.com/spellcheck/english/?q=uncle%20sam",
-			suggestions: []string{
-				"Uncle Sam",
-				"Uncle Tom",
-				"unclean",
-				"unclear",
-				"uncles",
-				"cubicle farm",
-				"uncle",
-				"uncleaner",
-				"unclearer",
-				"Uncle Remus",
-			},
-		},
-		{
-			url: "https://www.ldoceonline.com/spellcheck/english/?q=aaa",
-			suggestions: []string{
-				"aha",
-				"aka",
-				"baa",
-				"Sanaa",
-				"-ana",
-				"Baja",
-				"Cana",
-				"Dada",
-				"Java", // I wish there were no "Java" in the list (Yes I hate Java)
-				"Lada",
-			},
-		},
+	var tests map[string][]string = nil
+	testYamlFile, err := os.ReadFile("./testdata/spellcheck.yaml")
+	if err != nil {
+		t.Errorf("Error reading test data: %v", err)
 	}
 
-	for _, test := range tests {
-		test := test
-		t.Run(test.url, func(t *testing.T) {
+	err = yaml.Unmarshal(testYamlFile, &tests)
+	if err != nil {
+		t.Errorf("Error unmarshalling test data: %v", err)
+	}
+
+	for query, suggestions := range tests {
+
+		suggestions := suggestions
+		query = strings.ReplaceAll(query, "-", "+")
+		url := "https://www.ldoceonline.com/spellcheck/english/?q=" + query
+
+		t.Run(query, func(t *testing.T) {
 
 			t.Parallel()
 
-			req, err := http.NewRequest("GET", test.url, nil)
+			req, err := http.NewRequest("GET", url, nil)
 			if err != nil {
 				t.Errorf("Error creating request: %v", err)
 			}
@@ -106,12 +57,13 @@ func TestParseSpellcheckList(t *testing.T) {
 				t.Errorf("Error parsing spellcheck list: %v", err)
 			}
 
-			assert.Equal(t, len(test.suggestions), len(result.Suggestions))
+			assert.Equal(t, len(suggestions), len(result.Suggestions))
 
 			for i, suggestion := range result.Suggestions {
-				urlSuffix := strings.Replace(test.suggestions[i], " ", "+", -1)
 
-				assert.Equal(t, test.suggestions[i], suggestion.Text)
+				urlSuffix := strings.Replace(suggestions[i], " ", "+", -1)
+
+				assert.Equal(t, suggestions[i], suggestion.Text)
 				assert.Equal(t, "https://www.ldoceonline.com/search/direct/?q="+urlSuffix, suggestion.Url)
 			}
 		})
