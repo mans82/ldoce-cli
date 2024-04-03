@@ -385,3 +385,47 @@ co-:
         - signpost: ""
           subsenses:
             - definition: "added to the front of a noun to show that someone does a job with someone else"
+rock:
+  entries:
+    - hyphenatedText: "rock"
+      IPA: "/rɒk $ rɑːk/"
+      type: "noun"
+      grammerNotes: ""
+      extraInfo: ""
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "the hard substance that forms the main surface of the Earth"
+            - definition: "a piece of rock, especially a large one that sticks up from the ground"
+        - signpost: ""
+          subsenses:
+            - definition: "a type of popular modern music with a strong loud beat, played using guitars and drums"
+        - signpost: ""
+          subsenses:
+            - definition: "someone who always gives you support and who you can depend on"
+        - signpost: ""
+          subsenses:
+            - definition: "a hard sweet made in long round pieces"
+        - signpost: ""
+          subsenses:
+            - definition: "a very pure form of the illegal drug cocaine that some people use for pleasure"
+            - definition: "a small amount of this drug"
+        - signpost: ""
+          subsenses:
+            - definition: "a diamond or other jewel"
+    - hyphenatedText: "rock"
+      IPA: ""
+      type: "verb"
+      grammerNotes: ""
+      extraInfo: ""
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "to move gently backwards and forwards or from side to side, or to make something do this"
+        - signpost: ""
+          subsenses:
+            - definition: "to make the people in a place or organization feel very shocked – used in news reports"
+            - definition: "to make the future of something seem less certain or steady than it was before, especially because of problems or changes"
+        - signpost: ""
+          subsenses:
+            - definition: "if an explosion or earthquake rocks an area, it makes it shake"
