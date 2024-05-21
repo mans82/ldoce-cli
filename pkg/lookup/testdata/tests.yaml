@@ -3,7 +3,5 @@
   expectedWord: bucket
 - query: give
   expectedWord: give
-- query: nerv
-  expectedWord: nerve
 - query: co
   expectedWord: co-

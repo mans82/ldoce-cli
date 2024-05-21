@@ -14,6 +14,7 @@ var white = color.New(color.FgWhite).FprintfFunc()
 var whiteBold = color.New(color.FgWhite, color.Bold).FprintfFunc()
 var green = color.New(color.FgHiGreen).FprintfFunc()
 var magenta = color.New(color.FgHiMagenta).FprintfFunc()
+var yellow = color.New(color.FgHiYellow).FprintfFunc()
 
 func PrintFormattedEntry(writer io.Writer, entry parser.Entry) {
 	redBold(writer, "  %s", entry.HyphenatedText)
@@ -29,10 +30,21 @@ func PrintFormattedEntry(writer io.Writer, entry parser.Entry) {
 		green(writer, "%s", entry.GrammerNotes)
 		white(writer, "] ")
 	}
-	magenta(writer, "%s\n", entry.ExtraInfo)
+	magenta(writer, "%s", entry.ExtraInfo)
+
+	fmt.Fprintf(writer, "\n\n")
 
 	for _, sense := range entry.Senses {
-		PrintFormattedDefinition(writer, sense.Subsenses[0].Definition)
+		if sense.SignPost != "" {
+			white(writer, "    [")
+			yellow(writer, strings.ToUpper(sense.SignPost))
+			white(writer, "]")
+			fmt.Fprintln(writer)
+		}
+		for _, subsense := range sense.Subsenses {
+			PrintFormattedDefinition(writer, subsense.Definition)
+		}
+		fmt.Fprintln(writer)
 	}
 
 	fmt.Fprintln(writer)
@@ -41,7 +53,7 @@ func PrintFormattedEntry(writer io.Writer, entry parser.Entry) {
 func PrintFormattedDefinition(writer io.Writer, definition string) {
 	wrappedDefinition := wrapLines(definition, 80)
 
-	whiteBold(writer, "  + ")
+	whiteBold(writer, "    + ")
 	white(writer, "%s\n", wrappedDefinition[0])
 	for _, line := range wrappedDefinition[1:] {
 		white(writer, "    %s\n", line)

@@ -33,73 +33,73 @@ take:
       grammerNotes: ""
       extraInfo: ""
       senses:
-        - signpost: ""
+        - signpost: "move"
           subsenses:
             - definition: "to move or go with someone or something from one place to another"
-        - signpost: ""
+        - signpost: "action"
           subsenses:
             - definition: "used with a noun instead of using a verb to describe an action. For example, if you take a walk, you walk somewhere"
-        - signpost: ""
+        - signpost: "remove"
           subsenses:
             - definition: "to remove something from a place"
-        - signpost: ""
+        - signpost: "time/money/effort etc"
           subsenses:
             - definition: "if something takes a particular amount of time, money, effort etc, that amount of time etc is needed for it to happen or succeed"
-        - signpost: ""
+        - signpost: "accept"
           subsenses:
             - definition: "to accept or choose something that is offered, suggested, or given to you"
-        - signpost: ""
+        - signpost: "hold something"
           subsenses:
             - definition: "to get hold of something in your hands"
-        - signpost: ""
+        - signpost: "travel"
           subsenses:
             - definition: "to use a particular form of transport or a particular road in order to go somewhere"
-        - signpost: ""
+        - signpost: "study"
           subsenses:
             - definition: "to study a particular subject in school or college for an examination"
-        - signpost: ""
+        - signpost: "test"
           subsenses:
             - definition: "to do an examination or test"
-        - signpost: ""
+        - signpost: "suitable"
           subsenses:
             - definition: "to be the correct or suitable size, type etc for a particular person or thing"
-        - signpost: ""
+        - signpost: "collect"
           subsenses:
             - definition: "to collect or gather something for a particular purpose"
-        - signpost: ""
+        - signpost: "consider"
           subsenses:
             - definition: "to react to someone or something or consider them in a particular way"
-        - signpost: ""
+        - signpost: "feelings"
           subsenses:
             - definition: "to have or experience a particular feeling"
-        - signpost: ""
+        - signpost: "control"
           subsenses:
             - definition: "to get possession or control of something"
-        - signpost: ""
+        - signpost: "medicine/drugs"
           subsenses:
             - definition: "to swallow, breathe in, inject etc a drug or medicine"
-        - signpost: ""
+        - signpost: "level"
           subsenses:
             - definition: "to make someone or something go to a higher level or position"
-        - signpost: ""
+        - signpost: "measure"
           subsenses:
             - definition: "to measure the amount, level, rate etc of something"
-        - signpost: ""
+        - signpost: "numbers"
           subsenses:
             - definition: "to make a number smaller by a particular amount"
-        - signpost: ""
+        - signpost: "money"
           subsenses:
             - definition: "if a shop, business etc takes a particular amount of money, it receives that amount of money from its customers"
-        - signpost: ""
+        - signpost: "teach"
           subsenses:
             - definition: "to teach a particular group of students in a school or college"
-        - signpost: ""
+        - signpost: "write"
           subsenses:
             - definition: "to write down information"
-        - signpost: ""
+        - signpost: "sex"
           subsenses:
             - definition: "if a man takes someone, he has sex with them"
-        - signpost: ""
+        - signpost: "have an effect"
           subsenses:
             - definition: "if a treatment, dye, drug etc takes, it begins to work successfully"
     - hyphenatedText: "take"
@@ -146,13 +146,13 @@ shadow:
       grammerNotes: ""
       extraInfo: ""
       senses:
-        - signpost: ""
+        - signpost: "dark shape"
           subsenses:
             - definition: "the dark shape that someone or something makes on a surface when they are between that surface and the light"
-        - signpost: ""
+        - signpost: "darkness"
           subsenses:
             - definition: "darkness caused by something preventing light from reaching a place"
-        - signpost: ""
+        - signpost: "bad effect/influence"
           subsenses:
             - definition: "the bad effect or influence that something has, which makes other things seem less enjoyable, attractive, or impressive"
     - hyphenatedText: "shadow"
@@ -228,67 +228,67 @@ give:
       grammerNotes: ""
       extraInfo: ""
       senses:
-        - signpost: ""
+        - signpost: "present or money"
           subsenses:
             - definition: "to let someone have something as a present, or to provide something for someone"
-        - signpost: ""
+        - signpost: "put something in somebody’s hand"
           subsenses:
             - definition: "to put something in someone’s hand"
-        - signpost: ""
+        - signpost: "let somebody do something"
           subsenses:
             - definition: "to allow or make it possible for someone to do something"
-        - signpost: ""
+        - signpost: "tell somebody something"
           subsenses:
             - definition: "to tell someone information or details about something, or to tell someone what they should do"
-        - signpost: ""
+        - signpost: "make a movement/do an action"
           subsenses:
             - definition: "to do something by making a movement with your hand, face, body etc"
-        - signpost: ""
+        - signpost: "speech/talk/performance"
           subsenses:
             - definition: "to make a speech, perform a piece of music etc for a group of people"
-        - signpost: ""
+        - signpost: "make somebody have a feeling"
           subsenses:
             - definition: "to make someone have a feeling"
-        - signpost: ""
+        - signpost: "make somebody have problems"
           subsenses:
             - definition: "to make someone have problems"
-        - signpost: ""
+        - signpost: "make somebody ill"
           subsenses:
             - definition: "to infect someone with the same illness that you have"
-        - signpost: ""
+        - signpost: "organize a social event"
           subsenses:
             - definition: "to organize a social event such as a party"
-        - signpost: ""
+        - signpost: "make somebody do something"
           subsenses:
             - definition: "to tell someone to do a job or piece of work"
-        - signpost: ""
+        - signpost: "make somebody/something have a quality"
           subsenses:
             - definition: "to make someone or something have a particular quality"
-        - signpost: ""
+        - signpost: "pay for"
           subsenses:
             - definition: "to pay a particular amount of money for something"
-        - signpost: ""
+        - signpost: "behave towards"
           subsenses:
             - definition: "to behave towards someone in a way that shows you have a particular attitude or feeling towards them"
-        - signpost: ""
+        - signpost: "punishment"
           subsenses:
             - definition: "to officially say that someone must have a particular punishment"
-        - signpost: ""
+        - signpost: "be less strict"
           subsenses:
             - definition: "to be willing to change what you think or do according to what else happens"
-        - signpost: ""
+        - signpost: "state a decision"
           subsenses:
             - definition: "to state what your official decision or judgment is, for example in a game"
-        - signpost: ""
+        - signpost: "give a mark/score"
           subsenses:
             - definition: "to decide that someone should have a particular score or mark for something that they have done"
-        - signpost: ""
+        - signpost: "bend/stretch"
           subsenses:
             - definition: "if a material gives, it bends or stretches when you put pressure on it"
-        - signpost: ""
+        - signpost: "break/move"
           subsenses:
             - definition: "if something gives, it breaks or moves away suddenly because of weight or pressure on it"
-        - signpost: ""
+        - signpost: "sex"
           subsenses:
             - definition: "if a woman gives herself to a man, she has sex with him"
     - hyphenatedText: "give"
@@ -308,13 +308,13 @@ nerve:
       grammerNotes: ""
       extraInfo: ""
       senses:
-        - signpost: ""
+        - signpost: "body part"
           subsenses:
             - definition: "nerves are parts inside your body which look like threads and carry messages between the brain and other parts of the body"
-        - signpost: ""
+        - signpost: "courage"
           subsenses:
             - definition: "courage and confidence in a dangerous, difficult, or frightening situation"
-        - signpost: ""
+        - signpost: "lack of respect"
           subsenses:
             - definition: "if you say someone has a nerve, you mean that they have done something unsuitable or impolite, without seeming to be embarrassed about behaving in this way"
     - hyphenatedText: "nerve"
@@ -393,24 +393,24 @@ rock:
       grammerNotes: ""
       extraInfo: ""
       senses:
-        - signpost: ""
+        - signpost: "stone"
           subsenses:
             - definition: "the hard substance that forms the main surface of the Earth"
             - definition: "a piece of rock, especially a large one that sticks up from the ground"
-        - signpost: ""
+        - signpost: "music"
           subsenses:
             - definition: "a type of popular modern music with a strong loud beat, played using guitars and drums"
         - signpost: ""
           subsenses:
             - definition: "someone who always gives you support and who you can depend on"
-        - signpost: ""
+        - signpost: "sweet food"
           subsenses:
             - definition: "a hard sweet made in long round pieces"
-        - signpost: ""
+        - signpost: "drug"
           subsenses:
             - definition: "a very pure form of the illegal drug cocaine that some people use for pleasure"
             - definition: "a small amount of this drug"
-        - signpost: ""
+        - signpost: "jewel"
           subsenses:
             - definition: "a diamond or other jewel"
     - hyphenatedText: "rock"

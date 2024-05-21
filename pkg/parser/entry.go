@@ -64,6 +64,8 @@ func ParseEntry(htmlTextReader io.Reader) (*QueryResult, error) {
 		s.Find(".Sense").Each(func(i int, node *goquery.Selection) {
 
 			var sense Sense
+
+			signPost := tryExtract(node, ".SIGNPOST")
 			subSensesNodes := node.Find(".Subsense")
 
 			if subSensesNodes.Length() == 0 {
@@ -78,7 +80,7 @@ func ParseEntry(htmlTextReader io.Reader) (*QueryResult, error) {
 				definition = strings.TrimSpace(definition)
 
 				sense = Sense{
-					SignPost:  "",
+					SignPost:  signPost,
 					Subsenses: []SubSense{{Definition: definition}},
 				}
 			} else {
@@ -98,7 +100,7 @@ func ParseEntry(htmlTextReader io.Reader) (*QueryResult, error) {
 				})
 
 				sense = Sense{
-					SignPost:  "",
+					SignPost:  signPost,
 					Subsenses: subSenses,
 				}
 			}
