@@ -10,27 +10,36 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-type SubEntry struct {
-	HyphenatedText string   `yaml:"hyphenatedText"`
-	IPA            string   `yaml:"IPA"`
-	Type           string   `yaml:"type"`
-	GrammerNotes   string   `yaml:"grammerNotes"`
-	ExtraInfo      string   `yaml:"extraInfo"`
-	Definitions    []string `yaml:"definitions"`
+type SubSense struct {
+	Definition string `yaml:"definition"`
+}
+
+type Sense struct {
+	SignPost  string     `yaml:"signpost"`
+	Subsenses []SubSense `yaml:"subsenses"`
 }
 
 type Entry struct {
-	SubEntries []SubEntry `yaml:"subEntries"`
+	HyphenatedText string  `yaml:"hyphenatedText"`
+	IPA            string  `yaml:"IPA"`
+	Type           string  `yaml:"type"`
+	GrammerNotes   string  `yaml:"grammerNotes"`
+	ExtraInfo      string  `yaml:"extraInfo"`
+	Senses         []Sense `yaml:"senses"`
 }
 
-func ParseEntry(htmlTextReader io.Reader) (*Entry, error) {
+type QueryResult struct {
+	Entries []Entry `yaml:"entries"`
+}
+
+func ParseEntry(htmlTextReader io.Reader) (*QueryResult, error) {
 
 	doc, err := goquery.NewDocumentFromReader(htmlTextReader)
 	if err != nil {
 		return nil, fmt.Errorf("error parsing html: %v", err)
 	}
 
-	result := make([]SubEntry, 0)
+	entries := make([]Entry, 0)
 
 	doc.Find(".Entry").Each(func(i int, s *goquery.Selection) {
 
@@ -42,7 +51,7 @@ func ParseEntry(htmlTextReader io.Reader) (*Entry, error) {
 			return
 		}
 
-		currentEntry := SubEntry{}
+		currentEntry := Entry{}
 
 		currentEntry.HyphenatedText = hyphenatedTextSelection.Text()
 		currentEntry.IPA = tryExtract(head, "span.Head > span.PronCodes")
@@ -50,24 +59,61 @@ func ParseEntry(htmlTextReader io.Reader) (*Entry, error) {
 		currentEntry.GrammerNotes = strings.Trim(tryExtract(head, "span.GRAM"), "[]")
 		currentEntry.ExtraInfo = tryExtract(head, "span.REGISTERLAB")
 
+		senses := make([]Sense, 0)
+
 		s.Find(".Sense").Each(func(i int, node *goquery.Selection) {
 
-			definition := strings.TrimSpace(node.Find(".DEF").Text())
-			if definition == "" {
-				return
+			var sense Sense
+
+			signPost := tryExtract(node, ".SIGNPOST")
+			subSensesNodes := node.Find(".Subsense")
+
+			if subSensesNodes.Length() == 0 {
+
+				definition := strings.TrimSpace(node.Find(".DEF").Text())
+				if definition == "" {
+					return
+				}
+
+				definition += " " + strings.TrimSpace(node.Find(".DEF + .FULLFORM").Text())
+
+				definition = strings.TrimSpace(definition)
+
+				sense = Sense{
+					SignPost:  signPost,
+					Subsenses: []SubSense{{Definition: definition}},
+				}
+			} else {
+				subSenses := make([]SubSense, 0)
+
+				subSensesNodes.Each(func(i int, node *goquery.Selection) {
+					definition := strings.TrimSpace(node.Find(".DEF").Text())
+					if definition == "" {
+						return
+					}
+
+					definition += " " + strings.TrimSpace(node.Find(".DEF + .FULLFORM").Text())
+
+					definition = strings.TrimSpace(definition)
+
+					subSenses = append(subSenses, SubSense{Definition: definition})
+				})
+
+				sense = Sense{
+					SignPost:  signPost,
+					Subsenses: subSenses,
+				}
 			}
 
-			definition += " " + strings.TrimSpace(node.Find(".DEF + .FULLFORM").Text())
-
-			definition = strings.TrimSpace(definition)
-
-			currentEntry.Definitions = append(currentEntry.Definitions, definition)
+			senses = append(senses, sense)
 		})
 
-		result = append(result, currentEntry)
+		currentEntry.Senses = senses
+
+		entries = append(entries, currentEntry)
 	})
 
-	return &Entry{SubEntries: result}, nil
+	return &QueryResult{Entries: entries}, nil
 }
 
 func tryExtract(s *goquery.Selection, selector string) string {
@@ -81,9 +127,9 @@ func tryExtract(s *goquery.Selection, selector string) string {
 	return strings.TrimSpace(result)
 }
 
-func GetAllTestEntries(testcasesFilePath string) (map[string]Entry, error) {
+func GetAllTestEntries(testcasesFilePath string) (map[string]QueryResult, error) {
 
-	var allEntries map[string]Entry
+	var allEntries map[string]QueryResult
 
 	testYamlFile, err := os.ReadFile(testcasesFilePath)
 	if err != nil {

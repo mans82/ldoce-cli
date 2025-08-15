@@ -1,228 +1,431 @@
 ---
 bucket:
-  subEntries:
+  entries:
     - hyphenatedText: "buck‧et"
       IPA: "/ˈbʌkɪt/"
       type: "noun"
       grammerNotes: "countable"
       extraInfo: ""
-      definitions:
-        - "an open container with a handle, used for carrying and holding things, especially liquids"
-        - "the quantity of liquid that a bucket can hold"
-        - "a part of a machine shaped like a large bucket and used for moving earth, water etc"
-        - "a large amount of something"
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "an open container with a handle, used for carrying and holding things, especially liquids"
+        - signpost: ""
+          subsenses:
+            - definition: "the quantity of liquid that a bucket can hold"
+        - signpost: ""
+          subsenses:
+            - definition: "a part of a machine shaped like a large bucket and used for moving earth, water etc"
+        - signpost: ""
+          subsenses:
+            - definition: "a large amount of something"
     - hyphenatedText: "bucket"
       IPA: ""
       type: "verb"
       grammerNotes: ""
       extraInfo: ""
+      senses: []
 take:
-  subEntries:
+  entries:
     - hyphenatedText: "take"
       IPA: "/teɪk/"
       type: "verb"
       grammerNotes: ""
       extraInfo: ""
-      definitions:
-        - "to move or go with someone or something from one place to another"
-        - "used with a noun instead of using a verb to describe an action. For example, if you take a walk, you walk somewhere"
-        - "to remove something from a place"
-        - "if something takes a particular amount of time, money, effort etc, that amount of time etc is needed for it to happen or succeed"
-        - "to accept or choose something that is offered, suggested, or given to you"
-        - "to get hold of something in your hands"
-        - "to use a particular form of transport or a particular road in order to go somewhere"
-        - "to study a particular subject in school or college for an examination"
-        - "to do an examination or test"
-        - "to be the correct or suitable size, type etc for a particular person or thing"
-        - "to collect or gather something for a particular purpose"
-        - "to react to someone or something or consider them in a particular way"
-        - "to have or experience a particular feeling"
-        - "to get possession or control of something"
-        - "to swallow, breathe in, inject etc a drug or medicine"
-        - "to make someone or something go to a higher level or position"
-        - "to measure the amount, level, rate etc of something"
-        - "to make a number smaller by a particular amount"
-        - "if a shop, business etc takes a particular amount of money, it receives that amount of money from its customers"
-        - "to teach a particular group of students in a school or college"
-        - "to write down information"
-        - "if a man takes someone, he has sex with them"
-        - "if a treatment, dye, drug etc takes, it begins to work successfully"
+      senses:
+        - signpost: "move"
+          subsenses:
+            - definition: "to move or go with someone or something from one place to another"
+        - signpost: "action"
+          subsenses:
+            - definition: "used with a noun instead of using a verb to describe an action. For example, if you take a walk, you walk somewhere"
+        - signpost: "remove"
+          subsenses:
+            - definition: "to remove something from a place"
+        - signpost: "time/money/effort etc"
+          subsenses:
+            - definition: "if something takes a particular amount of time, money, effort etc, that amount of time etc is needed for it to happen or succeed"
+        - signpost: "accept"
+          subsenses:
+            - definition: "to accept or choose something that is offered, suggested, or given to you"
+        - signpost: "hold something"
+          subsenses:
+            - definition: "to get hold of something in your hands"
+        - signpost: "travel"
+          subsenses:
+            - definition: "to use a particular form of transport or a particular road in order to go somewhere"
+        - signpost: "study"
+          subsenses:
+            - definition: "to study a particular subject in school or college for an examination"
+        - signpost: "test"
+          subsenses:
+            - definition: "to do an examination or test"
+        - signpost: "suitable"
+          subsenses:
+            - definition: "to be the correct or suitable size, type etc for a particular person or thing"
+        - signpost: "collect"
+          subsenses:
+            - definition: "to collect or gather something for a particular purpose"
+        - signpost: "consider"
+          subsenses:
+            - definition: "to react to someone or something or consider them in a particular way"
+        - signpost: "feelings"
+          subsenses:
+            - definition: "to have or experience a particular feeling"
+        - signpost: "control"
+          subsenses:
+            - definition: "to get possession or control of something"
+        - signpost: "medicine/drugs"
+          subsenses:
+            - definition: "to swallow, breathe in, inject etc a drug or medicine"
+        - signpost: "level"
+          subsenses:
+            - definition: "to make someone or something go to a higher level or position"
+        - signpost: "measure"
+          subsenses:
+            - definition: "to measure the amount, level, rate etc of something"
+        - signpost: "numbers"
+          subsenses:
+            - definition: "to make a number smaller by a particular amount"
+        - signpost: "money"
+          subsenses:
+            - definition: "if a shop, business etc takes a particular amount of money, it receives that amount of money from its customers"
+        - signpost: "teach"
+          subsenses:
+            - definition: "to teach a particular group of students in a school or college"
+        - signpost: "write"
+          subsenses:
+            - definition: "to write down information"
+        - signpost: "sex"
+          subsenses:
+            - definition: "if a man takes someone, he has sex with them"
+        - signpost: "have an effect"
+          subsenses:
+            - definition: "if a treatment, dye, drug etc takes, it begins to work successfully"
     - hyphenatedText: "take"
       IPA: ""
       type: "noun"
       grammerNotes: ""
       extraInfo: ""
-      definitions:
-        - "an occasion when a film scene, song, action etc is recorded"
-        - "the amount of money earned by a shop or business in a particular period of time"
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "an occasion when a film scene, song, action etc is recorded"
+        - signpost: ""
+          subsenses:
+            - definition: "the amount of money earned by a shop or business in a particular period of time"
     - hyphenatedText: "take"
       IPA: "/teɪk/"
       type: "noun"
       grammerNotes: "countable usually singular"
       extraInfo: "informal"
-      definitions:
-        - "the amount of money earned by a business in a particular period of time"
-        - "to be willing to do something wrong or illegal in return for money"
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "the amount of money earned by a business in a particular period of time"
+        - signpost: ""
+          subsenses:
+            - definition: "to be willing to do something wrong or illegal in return for money"
     - hyphenatedText: "take"
       IPA: ""
       type: "verb"
       grammerNotes: "transitive"
       extraInfo: ""
-      definitions:
-        - "to subtract one number from another number"
-        - "if a business takes or takes in a particular amount of money, it earns that money from selling its goods and services"
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "to subtract one number from another number"
+        - signpost: ""
+          subsenses:
+            - definition: "if a business takes or takes in a particular amount of money, it earns that money from selling its goods and services"
 shadow:
-  subEntries:
+  entries:
     - hyphenatedText: "shad‧ow"
       IPA: "/ˈʃædəʊ $ -doʊ/"
       type: "noun"
       grammerNotes: ""
       extraInfo: ""
-      definitions:
-        - "the dark shape that someone or something makes on a surface when they are between that surface and the light"
-        - "darkness caused by something preventing light from reaching a place"
-        - "the bad effect or influence that something has, which makes other things seem less enjoyable, attractive, or impressive"
+      senses:
+        - signpost: "dark shape"
+          subsenses:
+            - definition: "the dark shape that someone or something makes on a surface when they are between that surface and the light"
+        - signpost: "darkness"
+          subsenses:
+            - definition: "darkness caused by something preventing light from reaching a place"
+        - signpost: "bad effect/influence"
+          subsenses:
+            - definition: "the bad effect or influence that something has, which makes other things seem less enjoyable, attractive, or impressive"
     - hyphenatedText: "shadow"
       IPA: ""
       type: "verb"
       grammerNotes: "transitive"
       extraInfo: ""
-      definitions:
-        - "to follow someone closely in order to watch what they are doing"
-        - "to cover something with a shadow, or make it dark"
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "to follow someone closely in order to watch what they are doing"
+        - signpost: ""
+          subsenses:
+            - definition: "to cover something with a shadow, or make it dark"
     - hyphenatedText: "shadow"
       IPA: ""
       type: "adjective"
       grammerNotes: "only before noun"
       extraInfo: ""
+      senses: []
     - hyphenatedText: "shad‧ow"
       IPA: "/ˈʃædəʊ-doʊ/"
       type: "verb"
       grammerNotes: "transitive"
       extraInfo: ""
-      definitions:
-        - "to watch someone very closely or work with them in order to learn how they do their job"
-        - "to change at the same rate or in the same way as something"
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "to watch someone very closely or work with them in order to learn how they do their job"
+        - signpost: ""
+          subsenses:
+            - definition: "to change at the same rate or in the same way as something"
 triumph:
-  subEntries:
+  entries:
     - hyphenatedText: "triumph"
       IPA: ""
       type: "verb"
       grammerNotes: "intransitive"
       extraInfo: "formal"
-      definitions:
-        - "to gain a victory or success after a difficult struggle"
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "to gain a victory or success after a difficult struggle"
     - hyphenatedText: "tri‧umph"
       IPA: "/ˈtraɪəmf/"
       type: "noun"
       grammerNotes: ""
       extraInfo: ""
-      definitions:
-        - "an important victory or success after a difficult struggle"
-        - "a feeling of pleasure and satisfaction that you get from victory or success"
-        - "a very successful example of something"
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "an important victory or success after a difficult struggle"
+        - signpost: ""
+          subsenses:
+            - definition: "a feeling of pleasure and satisfaction that you get from victory or success"
+        - signpost: ""
+          subsenses:
+            - definition: "a very successful example of something"
     - hyphenatedText: "Triumph"
       IPA: ""
       type: ""
       grammerNotes: ""
       extraInfo: "trademark"
-      definitions:
-        - "a type of motorcycle made by the British company Triumph, which is known for being well-made in a traditional way. The Triumph company also used to make sports cars."
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "a type of motorcycle made by the British company Triumph, which is known for being well-made in a traditional way. The Triumph company also used to make sports cars."
 give:
-  subEntries:
+  entries:
     - hyphenatedText: "give"
       IPA: "/ɡɪv/"
       type: "verb"
       grammerNotes: ""
       extraInfo: ""
-      definitions:
-        - "to let someone have something as a present, or to provide something for someone"
-        - "to put something in someone’s hand"
-        - "to allow or make it possible for someone to do something"
-        - "to tell someone information or details about something, or to tell someone what they should do"
-        - "to do something by making a movement with your hand, face, body etc"
-        - "to make a speech, perform a piece of music etc for a group of people"
-        - "to make someone have a feeling"
-        - "to make someone have problems"
-        - "to infect someone with the same illness that you have"
-        - "to organize a social event such as a party"
-        - "to tell someone to do a job or piece of work"
-        - "to make someone or something have a particular quality"
-        - "to pay a particular amount of money for something"
-        - "to behave towards someone in a way that shows you have a particular attitude or feeling towards them"
-        - "to officially say that someone must have a particular punishment"
-        - "to be willing to change what you think or do according to what else happens"
-        - "to state what your official decision or judgment is, for example in a game"
-        - "to decide that someone should have a particular score or mark for something that they have done"
-        - "if a material gives, it bends or stretches when you put pressure on it"
-        - "if something gives, it breaks or moves away suddenly because of weight or pressure on it"
-        - "if a woman gives herself to a man, she has sex with him"
+      senses:
+        - signpost: "present or money"
+          subsenses:
+            - definition: "to let someone have something as a present, or to provide something for someone"
+        - signpost: "put something in somebody’s hand"
+          subsenses:
+            - definition: "to put something in someone’s hand"
+        - signpost: "let somebody do something"
+          subsenses:
+            - definition: "to allow or make it possible for someone to do something"
+        - signpost: "tell somebody something"
+          subsenses:
+            - definition: "to tell someone information or details about something, or to tell someone what they should do"
+        - signpost: "make a movement/do an action"
+          subsenses:
+            - definition: "to do something by making a movement with your hand, face, body etc"
+        - signpost: "speech/talk/performance"
+          subsenses:
+            - definition: "to make a speech, perform a piece of music etc for a group of people"
+        - signpost: "make somebody have a feeling"
+          subsenses:
+            - definition: "to make someone have a feeling"
+        - signpost: "make somebody have problems"
+          subsenses:
+            - definition: "to make someone have problems"
+        - signpost: "make somebody ill"
+          subsenses:
+            - definition: "to infect someone with the same illness that you have"
+        - signpost: "organize a social event"
+          subsenses:
+            - definition: "to organize a social event such as a party"
+        - signpost: "make somebody do something"
+          subsenses:
+            - definition: "to tell someone to do a job or piece of work"
+        - signpost: "make somebody/something have a quality"
+          subsenses:
+            - definition: "to make someone or something have a particular quality"
+        - signpost: "pay for"
+          subsenses:
+            - definition: "to pay a particular amount of money for something"
+        - signpost: "behave towards"
+          subsenses:
+            - definition: "to behave towards someone in a way that shows you have a particular attitude or feeling towards them"
+        - signpost: "punishment"
+          subsenses:
+            - definition: "to officially say that someone must have a particular punishment"
+        - signpost: "be less strict"
+          subsenses:
+            - definition: "to be willing to change what you think or do according to what else happens"
+        - signpost: "state a decision"
+          subsenses:
+            - definition: "to state what your official decision or judgment is, for example in a game"
+        - signpost: "give a mark/score"
+          subsenses:
+            - definition: "to decide that someone should have a particular score or mark for something that they have done"
+        - signpost: "bend/stretch"
+          subsenses:
+            - definition: "if a material gives, it bends or stretches when you put pressure on it"
+        - signpost: "break/move"
+          subsenses:
+            - definition: "if something gives, it breaks or moves away suddenly because of weight or pressure on it"
+        - signpost: "sex"
+          subsenses:
+            - definition: "if a woman gives herself to a man, she has sex with him"
     - hyphenatedText: "give"
       IPA: ""
       type: "noun"
       grammerNotes: "uncountable"
       extraInfo: ""
-      definitions:
-        - "the ability of a material or substance to bend or stretch when put under pressure"
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "the ability of a material or substance to bend or stretch when put under pressure"
 nerve:
-  subEntries:
+  entries:
     - hyphenatedText: "nerve"
       IPA: "/nɜːv $ nɜːrv/"
       type: "noun"
       grammerNotes: ""
       extraInfo: ""
-      definitions:
-        - "nerves are parts inside your body which look like threads and carry messages between the brain and other parts of the body"
-        - "courage and confidence in a dangerous, difficult, or frightening situation"
-        - "if you say someone has a nerve, you mean that they have done something unsuitable or impolite, without seeming to be embarrassed about behaving in this way"
+      senses:
+        - signpost: "body part"
+          subsenses:
+            - definition: "nerves are parts inside your body which look like threads and carry messages between the brain and other parts of the body"
+        - signpost: "courage"
+          subsenses:
+            - definition: "courage and confidence in a dangerous, difficult, or frightening situation"
+        - signpost: "lack of respect"
+          subsenses:
+            - definition: "if you say someone has a nerve, you mean that they have done something unsuitable or impolite, without seeming to be embarrassed about behaving in this way"
     - hyphenatedText: "nerve"
       IPA: ""
       type: "verb"
       grammerNotes: ""
       extraInfo: ""
+      senses: []
 co-:
-  subEntries:
+  entries:
     - hyphenatedText: "co-"
       IPA: "/kəʊ $ koʊ/"
       type: "prefix"
       grammerNotes: ""
       extraInfo: ""
-      definitions:
-        - "together with"
-        - "doing something with someone else as an equal or with less responsibility"
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "together with"
+        - signpost: ""
+          subsenses:
+            - definition: "doing something with someone else as an equal or with less responsibility"
     - hyphenatedText: "Co."
       IPA: "/kəʊ $ koʊ/"
       type: ""
       grammerNotes: ""
       extraInfo: ""
-      definitions:
-        - "the abbreviation of company"
-        - "the written abbreviation of county"
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "the abbreviation of company"
+        - signpost: ""
+          subsenses:
+            - definition: "the written abbreviation of county"
     - hyphenatedText: "CO"
       IPA: ""
       type: ""
       grammerNotes: ""
       extraInfo: ""
-      definitions:
-        - "the written abbreviation of Colorado"
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "the written abbreviation of Colorado"
     - hyphenatedText: "C.O."
       IPA: "/ˌsiː ˈəʊ◂ $ -ˈoʊ◂/"
       type: "noun"
       grammerNotes: "countable"
       extraInfo: ""
-      definitions:
-        - "an officer who is in charge of a military unit"
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "an officer who is in charge of a military unit"
     - hyphenatedText: "Co"
       IPA: ""
       type: ""
       grammerNotes: ""
       extraInfo: ""
-      definitions:
-        - "written abbreviation for Company"
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "written abbreviation for Company"
     - hyphenatedText: "co"
       IPA: "/kəʊkoʊ/"
       type: "prefix"
       grammerNotes: ""
       extraInfo: ""
-      definitions:
-        - "added to the front of a noun to show that someone does a job with someone else"
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "added to the front of a noun to show that someone does a job with someone else"
+rock:
+  entries:
+    - hyphenatedText: "rock"
+      IPA: "/rɒk $ rɑːk/"
+      type: "noun"
+      grammerNotes: ""
+      extraInfo: ""
+      senses:
+        - signpost: "stone"
+          subsenses:
+            - definition: "the hard substance that forms the main surface of the Earth"
+            - definition: "a piece of rock, especially a large one that sticks up from the ground"
+        - signpost: "music"
+          subsenses:
+            - definition: "a type of popular modern music with a strong loud beat, played using guitars and drums"
+        - signpost: ""
+          subsenses:
+            - definition: "someone who always gives you support and who you can depend on"
+        - signpost: "sweet food"
+          subsenses:
+            - definition: "a hard sweet made in long round pieces"
+        - signpost: "drug"
+          subsenses:
+            - definition: "a very pure form of the illegal drug cocaine that some people use for pleasure"
+            - definition: "a small amount of this drug"
+        - signpost: "jewel"
+          subsenses:
+            - definition: "a diamond or other jewel"
+    - hyphenatedText: "rock"
+      IPA: ""
+      type: "verb"
+      grammerNotes: ""
+      extraInfo: ""
+      senses:
+        - signpost: ""
+          subsenses:
+            - definition: "to move gently backwards and forwards or from side to side, or to make something do this"
+        - signpost: ""
+          subsenses:
+            - definition: "to make the people in a place or organization feel very shocked – used in news reports"
+            - definition: "to make the future of something seem less certain or steady than it was before, especially because of problems or changes"
+        - signpost: ""
+          subsenses:
+            - definition: "if an explosion or earthquake rocks an area, it makes it shake"
