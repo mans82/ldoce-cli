@@ -7,9 +7,11 @@ import (
 	"github.com/mans82/ldoce-cli/pkg/parser"
 )
 
+const baseURL = "https://www.ldoceonline.com"
+
 func LookupDefault(word string) (*parser.QueryResult, error) {
 
-	resp, err := commons.HTTPGet("https://www.ldoceonline.com/dictionary/"+word, false)
+	resp, err := commons.HTTPGet(baseURL + "/dictionary/" + word, false)
 
 	if err != nil {
 		return nil, fmt.Errorf("error sending request: %v", err)
@@ -24,7 +26,7 @@ func LookupDefault(word string) (*parser.QueryResult, error) {
 	if resp.StatusCode == 302 {
 
 		spellcheckUrl := resp.Header.Get("Location")
-		spellcheckResp, err := commons.HTTPGet(spellcheckUrl, true)
+		spellcheckResp, err := commons.HTTPGet(baseURL + spellcheckUrl, true)
 
 		if err != nil {
 			return nil, fmt.Errorf("error sending request: %v", err)
