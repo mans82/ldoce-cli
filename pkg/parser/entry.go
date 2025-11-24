@@ -28,9 +28,6 @@ type Entry struct {
 	Senses         []Sense `yaml:"senses"`
 }
 
-type QueryResult struct {
-	Entries []Entry `yaml:"entries"`
-}
 
 func ParseEntry(htmlTextReader io.Reader) (*QueryResult, error) {
 
