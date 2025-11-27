@@ -28,8 +28,7 @@ type Entry struct {
 	Senses         []Sense `yaml:"senses"`
 }
 
-
-func ParseEntry(htmlTextReader io.Reader) (*QueryResult, error) {
+func ParseDictionaryPage(htmlTextReader io.Reader) ([]Entry, error) {
 
 	doc, err := goquery.NewDocumentFromReader(htmlTextReader)
 	if err != nil {
@@ -110,7 +109,7 @@ func ParseEntry(htmlTextReader io.Reader) (*QueryResult, error) {
 		entries = append(entries, currentEntry)
 	})
 
-	return &QueryResult{Entries: entries}, nil
+	return entries, nil
 }
 
 func tryExtract(s *goquery.Selection, selector string) string {
@@ -124,9 +123,9 @@ func tryExtract(s *goquery.Selection, selector string) string {
 	return strings.TrimSpace(result)
 }
 
-func GetAllTestEntries(testcasesFilePath string) (map[string]QueryResult, error) {
+func GetAllTestEntries(testcasesFilePath string) (map[string][]Entry, error) {
 
-	var allEntries map[string]QueryResult
+	var allEntries map[string][]Entry
 
 	testYamlFile, err := os.ReadFile(testcasesFilePath)
 	if err != nil {

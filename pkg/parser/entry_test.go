@@ -40,12 +40,12 @@ func TestParseEntry(t *testing.T) {
 				t.Errorf("Error sending request: %v", err)
 			}
 
-			queryResult, err := ParseEntry(resp.Body)
+			entries, err := ParseDictionaryPage(resp.Body)
 			if err != nil {
 				t.Errorf("Error parsing entry: %v", err)
 			}
 
-			assert.Equal(t, expectedQueryResult, *queryResult)
+			assert.Equal(t, expectedQueryResult, entries)
 
 		})
 	}

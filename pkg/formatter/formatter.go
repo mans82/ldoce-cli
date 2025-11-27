@@ -81,3 +81,11 @@ func wrapLines(s string, length int) []string {
 	result = append(result, currentLine)
 	return result
 }
+
+func PrintSpellingSuggestions(writer io.Writer, suggestions []string) {
+	whiteBold(writer, "Did you mean any of these?\n")
+
+	for _, suggestion := range suggestions {
+		white(writer, " - %s\n", suggestion)
+	}
+}

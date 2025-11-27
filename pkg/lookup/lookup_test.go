@@ -39,12 +39,14 @@ func TestLookUpDefault(t *testing.T) {
 		test := test
 		t.Run(test.Query, func(t *testing.T) {
 			t.Parallel()
-			entry, err := LookupDefault(test.Query)
+			queryResult, err := LookupDefault(test.Query)
 			if err != nil {
 				t.Errorf("Error looking up: %v", err)
 			}
 
-			assert.Equal(t, allEntries[test.ExpectedWord], *entry)
+			assert.Equal(t, true, queryResult.SpellingIsCorrect)
+			assert.Equal(t, allEntries[test.ExpectedWord], queryResult.Entries)
+			assert.Equal(t, 0, len(queryResult.Spellings))
 		})
 	}
 }

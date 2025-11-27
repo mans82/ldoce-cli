@@ -3,7 +3,9 @@ package parser
 import "slices"
 
 type QueryResult struct {
-	Entries []Entry `yaml:"entries"`
+	SpellingIsCorrect bool
+	Entries           []Entry  `yaml:"entries"`
+	Spellings         []string `yaml:"spellings"`
 }
 
 func (q *QueryResult) FilterByTypes(entryTypes ...string) *QueryResult {
