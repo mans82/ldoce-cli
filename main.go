@@ -1,45 +1,58 @@
 package main
 
 import (
-	"bufio"
 	"flag"
 	"fmt"
 	"os"
 
 	"github.com/mans82/ldoce-cli/pkg/formatter"
 	"github.com/mans82/ldoce-cli/pkg/lookup"
+	"github.com/mans82/ldoce-cli/pkg/parser"
 )
 
 type AppConfig struct {
-	query        string
-	entryTypes   []string
-	showAllTypes bool
+	query         string
+	entryTypes    []string
+	showAllTypes  bool
+	checkSpelling bool
 }
 
 func main() {
 
 	config := parseArgs()
 
-	queryResult, err := lookup.LookupDefault(config.query)
+	var queryResult *parser.QueryResult
+	var err error
+
+	if config.checkSpelling {
+		queryResult, err = lookup.Lookup(config.query)
+	} else {
+		queryResult, err = lookup.LookupDefault(config.query)
+	}
+
 	if err != nil {
 		panic(err)
+	}
+
+	stdioWriter := os.Stdout
+
+	if config.checkSpelling && !queryResult.SpellingIsCorrect {
+		formatter.PrintSpellingSuggestions(stdioWriter, queryResult.Spellings)
+		os.Exit(1)
 	}
 
 	if !config.showAllTypes {
 		queryResult = queryResult.FilterByTypes(config.entryTypes...)
 	}
 
-	bufferedStdout := bufio.NewWriter(os.Stdout)
-	defer bufferedStdout.Flush()
-
 	if len(queryResult.Entries) == 0 {
-		fmt.Fprintf(bufferedStdout,
+		fmt.Fprintf(stdioWriter,
 			"No entries found for '%s'. Check spelling or remove filters.\n", config.query)
 		return
 	}
 
 	for _, entry := range queryResult.Entries {
-		formatter.PrintFormattedEntry(bufferedStdout, entry)
+		formatter.PrintFormattedEntry(stdioWriter, entry)
 	}
 }
 
@@ -65,6 +78,7 @@ func parseArgs() *AppConfig {
 	verbFlag := flag.Bool("verb", false, "show verb entries")
 	adjectiveFlag := flag.Bool("adj", false, "show adjective entries")
 	adverbFlag := flag.Bool("adv", false, "show adverb entries")
+	checkFlag := flag.Bool("check", false, "check spelling first")
 
 	flag.Parse()
 
@@ -95,6 +109,8 @@ func parseArgs() *AppConfig {
 			config.showAllTypes = false
 		}
 	}
+
+	config.checkSpelling = *checkFlag
 
 	return config
 
